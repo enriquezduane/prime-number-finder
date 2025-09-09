@@ -30,7 +30,14 @@
 
 *   A timestamp must be printed at the absolute start AND end of every program execution.
 
+Language: C++
+Version: 20
+
+
+
 # Testable Deterministic Properties
+
+Testing Framework: doctest
 
 ## Applicable to All Test Cases
 - Correctness of the Prime Number List: For a given input y, the program must always produce the exact same list of prime numbers.
@@ -87,5 +94,4 @@ Use std::atomic<int> counter that threads increment to get the next number to te
 Each thread gets next number with fetch_add(1), tests if prime, repeats until counter > y
 
 ## Thread Management:
-Use std::vector<std::thread> to store worker threads
-Use thread.join() on all threads for A2 (Wait and Print) coordination
+Use std::jthread to store worker threads
