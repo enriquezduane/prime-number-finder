@@ -30,4 +30,22 @@
 
 *   A timestamp must be printed at the absolute start AND end of every program execution.
 
---
+# Testable Deterministic Properties
+
+## Applicable to All Test Cases
+- Correctness of the Prime Number List: For a given input y, the program must always produce the exact same list of prime numbers.
+- Handling of Edge Cases:
+    - Input y less than 2: The program should return an empty list of primes.
+    - Input y being a prime number: The list should correctly include y.
+    - Large input y: Large enough to cause issues
+- Configuration File Parsing: The function responsible for reading the number of threads (x) and the upper limit (y) from the configuration file should be tested to ensure it parses the values correctly and handles potential errors like a missing file or invalid data.
+
+## Straight Division of Search Range (A1B1 and A2B1)
+- Correct Range Division:  Given a total range and a number of threads, the test should assert that the sub-ranges are calculated correctly and cover the entire range without any overlaps or gaps.
+- Completeness of Results (for A2B1): After the threads have run, the test can compare the size and content of the resulting list against a known correct list for the given range.
+
+## Linear Search with Divisibility Testing (A1B2 and A2B2)
+- No Duplicate Primes: Final list of prime numbers contains no duplicates.
+- Completeness of Final Prime List (for A2B2): Similar to A2B1, the test should confirm that the final list of primes is accurate and complete for the given input y.
+
+
