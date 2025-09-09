@@ -48,4 +48,21 @@
 - No Duplicate Primes: Final list of prime numbers contains no duplicates.
 - Completeness of Final Prime List (for A2B2): Similar to A2B1, the test should confirm that the final list of primes is accurate and complete for the given input y.
 
+# Design Patterns To Use
+
+## Strategy
+Abstract Base Classes:
+- IPrintStrategy
+    - ImmediatePrintStrategy
+    - BatchPrintStrategy
+- ITaskDivisionStrategy
+    - RangeDivisionStrategy
+    - QueueDivisionStrategy
+
+## Factory
+Instead of having a large if/else or switch block in main() to instantiate the correct strategies, we can use a Factory to encapsulate this creation logic.
+
+
+
+
 
