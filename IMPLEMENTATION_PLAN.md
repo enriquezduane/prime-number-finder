@@ -62,7 +62,30 @@ Abstract Base Classes:
 ## Factory
 Instead of having a large if/else or switch block in main() to instantiate the correct strategies, we can use a Factory to encapsulate this creation logic.
 
+`std::unique_ptr<PrimeFinder> createPrimeFinder(printMode, divisionMode)`
 
 
+# Additional Requirements
 
+## Thread Safety Specifications
 
+For A1 (Immediate Print): Use std::mutex to synchronize std::cout calls to prevent garbled output
+For A2 (Batch Print): Use std::vector<int> with std::mutex protection when threads add found primes, OR use separate vectors per thread and merge at end
+
+Configuration File Format:
+```toml
+threads = 4
+upper_limit = 1000
+```
+
+- Handle missing file with default values (threads=4, upper_limit=1000)
+- Handle invalid values by exiting with error message
+- Suggest using a simple TOML parser library or basic file parsing
+
+## Linear Search Implementation (B2)
+Use std::atomic<int> counter that threads increment to get the next number to test
+Each thread gets next number with fetch_add(1), tests if prime, repeats until counter > y
+
+## Thread Management:
+Use std::vector<std::thread> to store worker threads
+Use thread.join() on all threads for A2 (Wait and Print) coordination
