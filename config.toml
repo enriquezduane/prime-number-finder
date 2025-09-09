@@ -1,0 +1,4 @@
+threads = 4
+upper_limit = 1000
+print_mode = "immediate"
+division_mode = "range"
