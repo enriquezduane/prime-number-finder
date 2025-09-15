@@ -115,7 +115,7 @@ help:
 	@echo "  - print_mode: 'immediate' or 'batch'"
 	@echo "  - division_mode: 'range' or 'queue'"
 
-# Dependencies (simplified - in a real project you'd use proper dependency tracking)
+# Dependencies
 $(BUILD_DIR)/main.o: $(SRC_DIR)/main.cpp $(INCLUDE_DIR)/ConfigParser.h $(INCLUDE_DIR)/PrimeFinderFactory.h
 $(BUILD_DIR)/ConfigParser.o: $(SRC_DIR)/ConfigParser.cpp $(INCLUDE_DIR)/ConfigParser.h
 $(BUILD_DIR)/PrimeFinderFactory.o: $(SRC_DIR)/PrimeFinderFactory.cpp $(INCLUDE_DIR)/PrimeFinderFactory.h
