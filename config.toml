@@ -1,4 +1,17 @@
-threads = 4
-upper_limit = 1000
+# Prime Number Finder Configuration
+
+# Number of threads to use for prime finding
+threads = 5
+
+# Upper limit for prime search (find all primes up to this number)
+upper_limit = 100
+
+# Print mode: "immediate" or "batch"
+# immediate: Print primes as soon as they are found
+# batch: Wait for all threads to complete, then print all primes
 print_mode = "immediate"
+
+# Division mode: "range" or "queue"
+# range: Divide the search range equally among threads
+# queue: Use atomic counter for dynamic work distribution
 division_mode = "range"

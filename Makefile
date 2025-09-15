@@ -64,6 +64,13 @@ test: $(TEST_TARGET)
 	@echo "=== Running Tests ==="
 	./$(TEST_TARGET)
 
+# Run tests with large numbers (slower but comprehensive)
+.PHONY: test-large
+test-large: $(TEST_TARGET)
+	@echo "=== Running Comprehensive Tests with Large Numbers ==="
+	@echo "This may take a while as it tests up to 10,000..."
+	./$(TEST_TARGET)
+
 # Run with different configurations
 .PHONY: demo
 demo: $(TARGET)
@@ -112,7 +119,10 @@ help:
 $(BUILD_DIR)/main.o: $(SRC_DIR)/main.cpp $(INCLUDE_DIR)/ConfigParser.h $(INCLUDE_DIR)/PrimeFinderFactory.h
 $(BUILD_DIR)/ConfigParser.o: $(SRC_DIR)/ConfigParser.cpp $(INCLUDE_DIR)/ConfigParser.h
 $(BUILD_DIR)/PrimeFinderFactory.o: $(SRC_DIR)/PrimeFinderFactory.cpp $(INCLUDE_DIR)/PrimeFinderFactory.h
-$(BUILD_DIR)/ImmediatePrintStrategy.o: $(SRC_DIR)/ImmediatePrintStrategy.cpp $(INCLUDE_DIR)/ImmediatePrintStrategy.h
-$(BUILD_DIR)/BatchPrintStrategy.o: $(SRC_DIR)/BatchPrintStrategy.cpp $(INCLUDE_DIR)/BatchPrintStrategy.h
-$(BUILD_DIR)/RangeDivisionStrategy.o: $(SRC_DIR)/RangeDivisionStrategy.cpp $(INCLUDE_DIR)/RangeDivisionStrategy.h
-$(BUILD_DIR)/QueueDivisionStrategy.o: $(SRC_DIR)/QueueDivisionStrategy.cpp $(INCLUDE_DIR)/QueueDivisionStrategy.h
+$(BUILD_DIR)/PrimeUtils.o: $(SRC_DIR)/PrimeUtils.cpp $(INCLUDE_DIR)/PrimeUtils.h
+$(BUILD_DIR)/ColorUtils.o: $(SRC_DIR)/ColorUtils.cpp $(INCLUDE_DIR)/ColorUtils.h
+$(BUILD_DIR)/ImmediatePrintStrategy.o: $(SRC_DIR)/ImmediatePrintStrategy.cpp $(INCLUDE_DIR)/ImmediatePrintStrategy.h $(INCLUDE_DIR)/ColorUtils.h
+$(BUILD_DIR)/BatchPrintStrategy.o: $(SRC_DIR)/BatchPrintStrategy.cpp $(INCLUDE_DIR)/BatchPrintStrategy.h $(INCLUDE_DIR)/ColorUtils.h
+$(BUILD_DIR)/RangeDivisionStrategy.o: $(SRC_DIR)/RangeDivisionStrategy.cpp $(INCLUDE_DIR)/RangeDivisionStrategy.h $(INCLUDE_DIR)/PrimeUtils.h $(INCLUDE_DIR)/ColorUtils.h
+$(BUILD_DIR)/QueueDivisionStrategy.o: $(SRC_DIR)/QueueDivisionStrategy.cpp $(INCLUDE_DIR)/QueueDivisionStrategy.h $(INCLUDE_DIR)/PrimeUtils.h $(INCLUDE_DIR)/ColorUtils.h
+$(BUILD_DIR)/main.o: $(SRC_DIR)/main.cpp $(INCLUDE_DIR)/ConfigParser.h $(INCLUDE_DIR)/PrimeFinderFactory.h $(INCLUDE_DIR)/ColorUtils.h

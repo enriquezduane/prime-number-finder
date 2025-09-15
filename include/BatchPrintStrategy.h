@@ -1,9 +1,9 @@
 #pragma once
 
 #include "IPrintStrategy.h"
+#include <iostream>
 #include <mutex>
 #include <vector>
-#include <iostream>
 
 class BatchPrintStrategy : public IPrintStrategy {
 private:
@@ -11,7 +11,7 @@ private:
     std::mutex collectionMutex;
 
 public:
-    void printPrime(int prime, std::thread::id threadId, 
-                   std::chrono::system_clock::time_point timestamp) override;
-    void finalize(const std::vector<int>& allPrimes) override;
+    void printPrime(int prime, std::thread::id threadId,
+                    std::chrono::system_clock::time_point timestamp) override;
+    void finalize(const std::vector<int> &allPrimes) override;
 };
