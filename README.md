@@ -2,11 +2,7 @@
 
 ## Video Demo
 
-## Images
-
-### Tests Passing
-
-*160 test assertions pass, covering everything from basic prime checking to scenarios with thousands of primes.*
+https://github.com/user-attachments/assets/abe8f090-8a9b-48a8-a7a4-da63efa24365
 
 ## Technology Used
 
