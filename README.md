@@ -1,6 +1,4 @@
-# Prime Number Finder
-
-## Video Demo
+# Multithreaded Prime Number Finder
 
 https://github.com/user-attachments/assets/abe8f090-8a9b-48a8-a7a4-da63efa24365
 
